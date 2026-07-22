@@ -189,8 +189,8 @@
         .academic-card ol.normal-list { margin: 0; }
         .academic-card ol.normal-list li:last-child { margin-bottom: 0; }
 
-        /* 학회 / 저널 이름 강조 — 어디서 발표했는지 한눈에 */
-        #academic-work em {
+        /* 저널 이름만 강조 (Publications 카드 한정) */
+        #academic-work .pubs em {
             font-style: normal;
             font-weight: 600;
             color: var(--main-color);
@@ -249,6 +249,33 @@
             margin-top: 5px;
             line-height: 1.35;
         }
+
+        /* Research Interest 키워드 태그 */
+        .keywords { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+        .keyword-tag {
+            display: inline-block;
+            padding: 6px 15px;
+            background: rgba(0, 87, 255, 0.07);
+            color: var(--main-color);
+            border: 1px solid rgba(0, 87, 255, 0.22);
+            border-radius: 20px;
+            font-size: 0.9rem; font-weight: 500;
+        }
+
+        /* Experimental Facilities */
+        .facility { display: flex; gap: 28px; margin-bottom: 40px; align-items: flex-start; }
+        .facility-img {
+            width: 330px; max-width: 100%; height: auto;
+            border-radius: 8px; border: 1px solid #e5e7eb;
+            flex-shrink: 0; background: #fff;
+        }
+        .facility-body h4 { margin-bottom: 10px; }
+        .facility-body ul.normal-list { margin-top: 12px; }
+        .facility-body ul.normal-list li { font-size: 0.92rem; margin-bottom: 6px; }
+        @media (max-width: 768px) {
+            .facility { flex-direction: column; }
+            .facility-img { width: 100%; }
+        }
         .org-name { color: var(--text-color); text-decoration: none; font-weight: 500; }
         .org-name:hover { color: var(--accent-color); text-decoration: underline; }
 
@@ -303,6 +330,7 @@
         <ul class="nav-menu">
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research Interest</a></li>
+            <li><a href="#facilities">Facilities</a></li>
             <li><a href="#academic-work">Academic Work</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#education">Education</a></li>
@@ -359,13 +387,52 @@
                 <li><strong>Electric Propulsion:</strong> Neutral flow dynamics in Hall thrusters, Alternative propellants (Argon, etc.)</li>
                 <li><strong>Numerical Simulation:</strong> Developing Direct Simulation Monte Carlo (DSMC) codes</li>
             </ul>
+
+            <h4 style="margin-top: 30px;">Keywords</h4>
+            <div class="keywords">
+                <span class="keyword-tag">Hall Thruster</span>
+                <span class="keyword-tag">Alternative Propellant</span>
+                <span class="keyword-tag">DSMC Simulation</span>
+                <span class="keyword-tag">Rarefied Gas Dynamics</span>
+                <span class="keyword-tag">Gas-Surface-Interaction Modeling</span>
+                <span class="keyword-tag">TAL-type Hall Thruster</span>
+                <span class="keyword-tag">Swirl Injector</span>
+                <span class="keyword-tag">Sawtooth Anode</span>
+            </div>
+        </section>
+
+        <section id="facilities">
+            <h2>Experimental Facilities</h2>
+
+            <div class="facility">
+                <img class="facility-img" src="img/thrust-stand.png" alt="2D dual-pendulum thrust stand">
+                <div class="facility-body">
+                    <h4>2D Dual-Pendulum Thrust Stand for Hall Thrusters (1–100 mN class)</h4>
+                    <p>A high-precision two-dimensional dual-pendulum thrust stand for direct thrust measurement of Hall thrusters in the 1–100 mN range. It combines inner and outer pendulums, a J&nbsp;×&nbsp;B calibration/control system, temperature-uniform plates to suppress thermal drift, and a dedicated sensor system. Currently used to characterize the RAIJIN-66 argon Hall thruster.</p>
+                    <p>Reference: <a href="https://doi.org/10.1063/1.2815336" target="_blank" rel="noopener noreferrer">doi:10.1063/1.2815336</a></p>
+                </div>
+            </div>
+
+            <div class="facility">
+                <img class="facility-img" src="img/chamber.jpg" alt="Space-simulation vacuum chamber">
+                <div class="facility-body">
+                    <h4>Space-Simulation Vacuum Chambers</h4>
+                    <p>Vacuum chambers at the Komurasaki &amp; Koizumi Laboratory used for electric-propulsion and rarefied-gas experiments. (<a href="http://www.al.t.u-tokyo.ac.jp/ugvc/index.html" target="_blank" rel="noopener noreferrer">Facility-dedicated page</a>)</p>
+                    <ul class="normal-list">
+                        <li><strong>Space chamber</strong> — ø2000 × L3000; 2 rotary pumps, booster pump, diffusion pump (3,275 + 37,000 L/s). <a href="http://www.al.t.u-tokyo.ac.jp/ugvc/index.html" target="_blank" rel="noopener noreferrer">Facility page →</a></li>
+                        <li>ø800 × L2000; rotary pump, booster pump, cryopump (320 + 8,400 (Ar) L/s)</li>
+                        <li>ø1000 × L1200; rotary pump, turbomolecular pump (11 + 900 L/s)</li>
+                        <li>ø1000 × L1500; rotary pump, turbomolecular pump (11 + 420 L/s)</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section id="academic-work">
             <h2>Academic Work</h2>
 
             <h3>Publications (Peer-Reviewed)</h3>
-            <div class="academic-card">
+            <div class="academic-card pubs">
             <ol class="normal-list">
                 <li>D. Satpathy, K. Komurasaki, <strong><u>J. Lee</u></strong>, et al., “Impact of reverse flow induced by a sawtooth anode on the performance of an argon Hall thruster”,
                     <em>Journal of Applied Physics</em>, American Institute of Physics Publishing, 2026, <a href="https://doi.org/10.1063/5.0307266" target="_blank" rel="noopener noreferrer">doi:10.1063/5.0307266</a></li>
@@ -511,14 +578,14 @@
             <!-- 대표 수상은 색상으로 강조 -->
             <div class="award-item award-featured">
                 <div class="award-title">🏅 JSPS Research Fellowship for Young Scientists (DC1)</div>
-                <div class="award-meta">Japan Society for the Promotion of Science (JSPS) · Selected Oct. 2025 · Apr. 2026 - Mar. 2029</div>
+                <div class="award-meta"><a href="https://www.jsps.go.jp/english/" target="_blank" rel="noopener noreferrer">Japan Society for the Promotion of Science (JSPS)</a> · Selected Oct. 2025 · Apr. 2026 - Mar. 2029</div>
                 <p class="award-desc">Most prestigious fellowship for Ph.D. students in Japan with an acceptance rate of approx. 9% (3/33 in the division), providing a three-year monthly stipend and research grant.</p>
                 <p class="award-desc">Grant number: <a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-26KJ0944/" target="_blank" rel="noopener noreferrer">26KJ0944</a></p>
             </div>
 
             <div class="award-item">
                 <div class="award-title">LOTTE FOUNDATION Scholarship</div>
-                <div class="award-meta">Lotte Foundation · Oct. 2024 - Mar. 2026</div>
+                <div class="award-meta"><a href="https://www.lottefoundation.jp/scholarship/" target="_blank" rel="noopener noreferrer">Lotte Foundation</a> · Oct. 2024 - Mar. 2026</div>
                 <p class="award-desc">Selected as the top student of the Fall 2024 cohort and honored as the representative award recipient.</p>
             </div>
 
