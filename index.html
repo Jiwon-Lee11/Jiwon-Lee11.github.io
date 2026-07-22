@@ -200,6 +200,25 @@
             box-decoration-break: clone;
         }
 
+        /* 학회 개수 표기 (International/Domestic 옆) */
+        .conf-count {
+            font-size: 0.85rem; font-weight: 500;
+            color: #64748b; margin-left: 10px;
+            white-space: nowrap;
+        }
+        .conf-count .c-oral { color: #2471a3; font-weight: 600; }
+        .conf-count .c-poster { color: #1e8449; font-weight: 600; }
+
+        /* 1저자(First-author) 발표 강조 */
+        .academic-card ol li.first-author {
+            background: rgba(0, 87, 255, 0.06);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 0 6px 6px 0;
+            padding: 8px 14px;
+            margin: 10px 0 10px -4px;
+        }
+        .academic-card ol li.first-author::marker { color: var(--accent-color); font-weight: 700; }
+
         /* Activities: 학생회 마크가 붙는 항목 */
         .normal-list li.with-mark {
             list-style: none;
@@ -367,15 +386,15 @@
             </div>
 
             <div class="academic-card">
-            <h3>International Conferences</h3>
+            <h3>International Conferences <span class="conf-count">(<span class="c-oral">Oral 10</span> · <span class="c-poster">Poster 1</span> · Total 11)</span></h3>
             <ol class="normal-list">
-                <li><strong><u>J. Lee</u></strong>, et al., "Modeling of Sawtooth-Shaped Walls for Rarefied Gas Flow Control", <em>34th International Symposium on Rarefied Gas Dynamics</em>, Brisbane, Australia, Jul. 2026. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Modeling of Sawtooth-Shaped Walls for Rarefied Gas Flow Control", <em>34th International Symposium on Rarefied Gas Dynamics</em>, Brisbane, Australia, Jul. 2026. <span class="badge badge-oral">Oral</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "Sawtooth-Shaped Wall Reflection Model for Argon Hall Thruster", <em>33rd Annual Meeting of Institute of Applied Plasma Science</em>, Shizuoka, Japan, Mar. 2026. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Sawtooth-Shaped Wall Reflection Model for Argon Hall Thruster", <em>33rd Annual Meeting of Institute of Applied Plasma Science</em>, Shizuoka, Japan, Mar. 2026. <span class="badge badge-oral">Oral</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "Numerical Analysis for the Design Optimization of Sawtooth-Shaped Channels for Enhanced Reverse Flow", <em>78th Annual Gaseous Electronics Conference</em>, Seoul, Republic of Korea, Oct. 2025. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Numerical Analysis for the Design Optimization of Sawtooth-Shaped Channels for Enhanced Reverse Flow", <em>78th Annual Gaseous Electronics Conference</em>, Seoul, Republic of Korea, Oct. 2025. <span class="badge badge-oral">Oral</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "Control of Neutral Gas Flow in a Hollow Anode of Hall Thrusters", <em>39th International Electric Propulsion Conference</em>, London, UK, Sep. 2025. <span class="badge badge-poster">Poster</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Control of Neutral Gas Flow in a Hollow Anode of Hall Thrusters", <em>39th International Electric Propulsion Conference</em>, London, UK, Sep. 2025. <span class="badge badge-poster">Poster</span></li>
 
                 <li>D. Satpathy, H. Sekine, <strong><u>J. Lee</u></strong>, et al., "Enhancement of neutral particle density by propellant reversal through a sawtooth hollow anode", <em>39th International Electric Propulsion Conference</em>, London, UK, Sep. 2025. <span class="badge badge-oral">Oral</span></li>
 
@@ -383,7 +402,7 @@
 
                 <li>N. Barth, D. Satpathy, <strong><u>J. Lee</u></strong>, et al., "Magnetohydrodynamic Analysis of High-Density Plasma Hall Thruster Operation", <em>39th International Electric Propulsion Conference</em>, London, UK, Sep. 2025. <span class="badge badge-oral">Oral</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "Neutral Gas Flow Dynamics in a Hall thruster Dominated by Wall Reflections", <em>35th International Symposium on Space Technology and Science</em>, Tokushima, Japan, Jul. 2025. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Neutral Gas Flow Dynamics in a Hall thruster Dominated by Wall Reflections", <em>35th International Symposium on Space Technology and Science</em>, Tokushima, Japan, Jul. 2025. <span class="badge badge-oral">Oral</span></li>
 
                 <li>D. Satpathy, H. Sekine, <strong><u>J. Lee</u></strong>, et al., "An argon Hall thruster using a hollow anode with corrugated surface", <em>35th International Symposium on Space Technology and Science</em>, Tokushima, Japan, Jul. 2025. <span class="badge badge-oral">Oral</span></li>
 
@@ -395,27 +414,27 @@
             </div>
 
             <div class="academic-card">
-            <h3>Domestic Conferences</h3>
+            <h3>Domestic Conferences <span class="conf-count">(<span class="c-oral">Oral 9</span> · <span class="c-poster">Poster 1</span> · Total 10)</span></h3>
             <ol class="normal-list">
-                <li><strong><u>J. Lee</u></strong>, et al., "Numerical Implementation of the Sawtooth-CLL Boundary Model in DSMC for Rarefied Gas Flow Control", <em>第58回流力講演会／第44回ANSS</em>, Tottori, Japan, Jun. 2026. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Numerical Implementation of the Sawtooth-CLL Boundary Model in DSMC for Rarefied Gas Flow Control", <em>第58回流力講演会／第44回ANSS</em>, Tottori, Japan, Jun. 2026. <span class="badge badge-oral">Oral</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "Analysis of Neutral Particle Back-flow effects on Sawtooth Walls in TAL", <em>令和7年度 宇宙輸送シンポジウム</em>, Kanagawa, Japan, Jan. 2026. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Analysis of Neutral Particle Back-flow effects on Sawtooth Walls in TAL", <em>令和7年度 宇宙輸送シンポジウム</em>, Kanagawa, Japan, Jan. 2026. <span class="badge badge-oral">Oral</span></li>
 
                 <li>N. Barth, D. Satpathy, K. Komurasaki, <strong><u>J. Lee</u></strong>, et al., "The Role of the Hall Parameter in Magnetohydrodynamic Scaling of Hall Thrusters", <em>令和7年度 宇宙輸送シンポジウム</em>, Kanagawa, Japan, Jan. 2026. <span class="badge badge-oral">Oral</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "Analysis of Neutral Particle Flow Variation in the Anode and Channel According to Injection Methods", <em>令和6年度 宇宙輸送シンポジウム</em>, Kanagawa, Japan, Jan. 2025. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Analysis of Neutral Particle Flow Variation in the Anode and Channel According to Injection Methods", <em>令和6年度 宇宙輸送シンポジウム</em>, Kanagawa, Japan, Jan. 2025. <span class="badge badge-oral">Oral</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "Rarefied Gas Flow in a Channel Dominated by Wall Reflection", <em>第38回数値流体力学シンポジウム</em>, Tokyo, Japan, Dec. 2024. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Rarefied Gas Flow in a Channel Dominated by Wall Reflection", <em>第38回数値流体力学シンポジウム</em>, Tokyo, Japan, Dec. 2024. <span class="badge badge-oral">Oral</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "DSMC Numerical Analysis of Suitable Anode Length for Swirl Injection Method and Efficiency Change by Mass Flow Rate", <em>第68回宇宙科学技術連合講演会</em>, Himeji, Japan, Nov. 2024. <span class="badge badge-poster">Poster</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "DSMC Numerical Analysis of Suitable Anode Length for Swirl Injection Method and Efficiency Change by Mass Flow Rate", <em>第68回宇宙科学技術連合講演会</em>, Himeji, Japan, Nov. 2024. <span class="badge badge-poster">Poster</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "Rarefied Gas Dynamics of a Propellant Flow Spiraling in a Channel", <em>第55回日本航空宇宙学会年会講演会</em>, Tokyo, Japan, Apr. 2024. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Rarefied Gas Dynamics of a Propellant Flow Spiraling in a Channel", <em>第55回日本航空宇宙学会年会講演会</em>, Tokyo, Japan, Apr. 2024. <span class="badge badge-oral">Oral</span></li>
 
                 <li>D. Satpathy, <strong><u>J. Lee</u></strong>, et al., "Impact of active anode cooling on argon Hall thruster performance", <em>第63回航空原動機・宇宙推進講演会</em>, Sapporo, Japan, Mar. 2024. <span class="badge badge-oral">Oral</span></li>
 
                 <li>D. Satpathy, H. Sekine, <strong><u>J. Lee</u></strong>, et al., "Ionization length estimation of RAIJIN-66 determined from performance measurements during its thermal transient operation", <em>令和5年度 宇宙輸送シンポジウム</em>, Kanagawa, Japan, Jan. 2024. <span class="badge badge-oral">Oral</span></li>
 
-                <li><strong><u>J. Lee</u></strong>, et al., "Use of Argon Propellant in a Hall Thruster for Mass Transportation", <em>第9回宇宙太陽光発電シンポジウム</em>, Kanazawa, Japan, Dec. 2023. <span class="badge badge-oral">Oral</span></li>
+                <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Use of Argon Propellant in a Hall Thruster for Mass Transportation", <em>第9回宇宙太陽光発電シンポジウム</em>, Kanazawa, Japan, Dec. 2023. <span class="badge badge-oral">Oral</span></li>
             </ol>
             </div>
         </section>
