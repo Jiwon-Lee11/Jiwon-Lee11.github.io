@@ -183,10 +183,11 @@
         .academic-card {
             background: var(--light-gray);
             border-radius: 12px;
-            padding: 6px 30px 24px;
+            padding: 20px 30px;
             margin-bottom: 22px;
         }
-        .academic-card h3 { margin-top: 26px; }
+        .academic-card ol.normal-list { margin: 0; }
+        .academic-card ol.normal-list li:last-child { margin-bottom: 0; }
 
         /* 학회 / 저널 이름 강조 — 어디서 발표했는지 한눈에 */
         #academic-work em {
@@ -209,30 +210,9 @@
         .conf-count .c-oral { color: #2471a3; font-weight: 600; }
         .conf-count .c-poster { color: #1e8449; font-weight: 600; }
 
-        /* 1저자(First-author) 발표 강조 */
-        .academic-card ol li.first-author {
-            background: rgba(0, 87, 255, 0.06);
-            border-left: 3px solid var(--accent-color);
-            border-radius: 0 6px 6px 0;
-            padding: 8px 14px;
-            margin: 10px 0 10px -4px;
-        }
+        /* 1저자(First-author) 발표: 번호만 파란색으로 */
         .academic-card ol li.first-author::marker { color: var(--accent-color); font-weight: 700; }
 
-        /* Activities: 학생회 마크가 붙는 항목 */
-        .normal-list li.with-mark {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-left: -20px;
-            margin-bottom: 16px;
-        }
-        .normal-list li.with-mark img {
-            width: 58px; height: auto;
-            flex-shrink: 0;
-            border-radius: 8px;
-        }
 
         /* 수상 카드 스타일 */
         .award-item {
@@ -255,6 +235,8 @@
             width: 116px; height: auto;   /* 모든 로고 동일 너비 (종횡비 유지) */
             object-fit: contain;
         }
+        /* 도쿄대 로고는 상대적으로 작아 보여 조금 더 크게 */
+        .org-mark[src$="utokyo.png"] { width: 183px; }
         .org-name { color: var(--text-color); text-decoration: none; font-weight: 500; }
         .org-name:hover { color: var(--accent-color); text-decoration: underline; }
 
@@ -263,7 +245,7 @@
             display: flex; margin-bottom: 40px;
         }
         .timeline-date {
-            min-width: 180px; font-weight: 600; color: var(--accent-color); flex-shrink: 0;
+            min-width: 195px; font-weight: 600; color: var(--accent-color); flex-shrink: 0;
         }
 
         /* 맨 위로 가기 버튼 */
@@ -370,23 +352,23 @@
         <section id="academic-work">
             <h2>Academic Work</h2>
 
-            <div class="academic-card">
             <h3>Publications (Peer-Reviewed)</h3>
+            <div class="academic-card">
             <ol class="normal-list">
                 <li>D. Satpathy, K. Komurasaki, <strong><u>J. Lee</u></strong>, et al., “Impact of reverse flow induced by a sawtooth anode on the performance of an argon Hall thruster”,
-                    <em>Journal of Applied Physics, American Institute of Physics Publishing</em>, 2026, <a href="https://doi.org/10.1063/5.0307266" target="_blank" rel="noopener noreferrer">doi:10.1063/5.0307266</a></li>
+                    <em>Journal of Applied Physics</em>, American Institute of Physics Publishing, 2026, <a href="https://doi.org/10.1063/5.0307266" target="_blank" rel="noopener noreferrer">doi:10.1063/5.0307266</a></li>
 
                 <li><strong><u>J. Lee</u></strong>, et al., “Numerical Analysis of Rarefied Gas Flow Dominated by Wall Reflection in a Straight Channel”,
                     <em>Vacuum</em>, 2026, <a href="https://doi.org/10.1016/j.vacuum.2025.114930" target="_blank" rel="noopener noreferrer">doi:10.1016/j.vacuum.2025.114930</a></li>
 
                 <li>D. Satpathy, H. Sekine, <strong><u>J. Lee</u></strong>, et al., "Influence of propellant injection directionality on the performance of an argon Hall thruster",
-                    <em>Journal of Applied Physics, American Institute of Physics Publishing</em>, 2024, <a href="https://doi.org/10.1063/5.0241386" target="_blank" rel="noopener noreferrer">doi:10.1063/5.0241386</a></li>
+                    <em>Journal of Applied Physics</em>, American Institute of Physics Publishing, 2024, <a href="https://doi.org/10.1063/5.0241386" target="_blank" rel="noopener noreferrer">doi:10.1063/5.0241386</a></li>
             </ol>
 
             </div>
 
-            <div class="academic-card">
             <h3>International Conferences <span class="conf-count">(<span class="c-oral">Oral 10</span> · <span class="c-poster">Poster 1</span> · Total 11)</span></h3>
+            <div class="academic-card">
             <ol class="normal-list">
                 <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Modeling of Sawtooth-Shaped Walls for Rarefied Gas Flow Control", <em>34th International Symposium on Rarefied Gas Dynamics</em>, Brisbane, Australia, Jul. 2026. <span class="badge badge-oral">Oral</span></li>
 
@@ -413,8 +395,8 @@
 
             </div>
 
-            <div class="academic-card">
             <h3>Domestic Conferences <span class="conf-count">(<span class="c-oral">Oral 9</span> · <span class="c-poster">Poster 1</span> · Total 10)</span></h3>
+            <div class="academic-card">
             <ol class="normal-list">
                 <li class="first-author"><strong><u>J. Lee</u></strong>, et al., "Numerical Implementation of the Sawtooth-CLL Boundary Model in DSMC for Rarefied Gas Flow Control", <em>第58回流力講演会／第44回ANSS</em>, Tottori, Japan, Jun. 2026. <span class="badge badge-oral">Oral</span></li>
 
@@ -553,7 +535,7 @@
         <section id="activities">
             <h2>Activities &amp; Others</h2>
             <ul class="normal-list">
-                <li class="with-mark"><a href="https://www.tokyoksa.com/" target="_blank" rel="noopener noreferrer"><img src="logos/utksa.png" alt="UTKSA logo"></a><span><strong><a href="https://www.tokyoksa.com/" target="_blank" rel="noopener noreferrer">The 54th President, Korean Student Association, The University of Tokyo</a></strong>, Apr. 2026 - Mar. 2027</span></li>
+                <li><strong><a href="https://www.tokyoksa.com/" target="_blank" rel="noopener noreferrer">The 54th President, Korean Student Association, The University of Tokyo</a></strong>, Apr. 2026 - Mar. 2027</li>
 
                 <li><strong>Completed <a href="https://www.astrobio.k.u-tokyo.ac.jp/DeepSpace/%e6%9c%ac%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%ae%e7%9b%ae%e7%9a%84/" target="_blank" rel="noopener noreferrer">Deep Space Exploration Education Program</a>, The University of Tokyo</strong>, Mar. 2025</li>
 
