@@ -236,8 +236,10 @@
             width: 116px; height: auto;   /* 모든 로고 동일 너비 (종횡비 유지) */
             object-fit: contain;
         }
-        /* 도쿄대 로고는 상대적으로 작아 보여 조금 더 크게 */
-        .org-mark[src$="utokyo.png"] { width: 183px; }
+        /* 가로형 로고(도쿄대/KIST/Auxilart)는 조금 더 크게 (한양대 seal은 기본 116px 유지) */
+        .org-mark[src$="utokyo.png"],
+        .org-mark[src$="kist.png"],
+        .org-mark[src$="auxilart.png"] { width: 183px; }
         .org-name { color: var(--text-color); text-decoration: none; font-weight: 500; }
         .org-name:hover { color: var(--accent-color); text-decoration: underline; }
 
