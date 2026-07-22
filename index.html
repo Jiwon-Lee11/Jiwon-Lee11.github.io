@@ -50,8 +50,8 @@
             --main-color: #1e293b;   /* 짙은 슬레이트 네이비 사이드바/제목 */
             --accent-color: #0057FF; /* Signal Blue 포인트 */
             --text-color: #333;
-            --bg-color: #F8F7F4;     /* Porcelain 배경 */
-            --light-gray: #ffffff;   /* 카드 흰색 */
+            --bg-color: #ffffff;     /* 흰색 배경 */
+            --light-gray: #f4f4f4;   /* 카드 연회색 (흰 배경과 대비) */
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -121,6 +121,14 @@
         }
         .social-links a:hover { background: var(--accent-color); }
 
+        /* 방문자 카운터 */
+        .visitor-counter {
+            margin-top: 22px; text-align: center;
+            font-size: 0.78rem; color: rgba(255,255,255,0.55);
+        }
+        .visitor-counter b { color: rgba(255,255,255,0.9); font-weight: 600; }
+        .visitor-counter .vc-sep { margin: 0 7px; opacity: 0.4; }
+
         /* --- 메인 콘텐츠 스타일 --- */
         .main-content {
             margin-left: var(--sidebar-width);
@@ -185,21 +193,16 @@
         .award-desc { font-size: 0.95rem; color: #555; }
         .award-desc a { word-break: break-all; }
 
-        /* 기관 로고 + 이름 라인 */
-        .org-line {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-color);
-            text-decoration: none;
+        /* 기관 마크 (기간 아래 블릿 형태) + 이름 링크 */
+        .org-mark-link { display: block; margin-top: 12px; line-height: 0; }
+        .org-mark {
+            display: block;
+            width: auto; height: auto;
+            max-width: 72px; max-height: 46px;
+            object-fit: contain;
         }
-        .org-line:hover { text-decoration: none; }
-        .org-line:hover .org-name { text-decoration: underline; color: var(--accent-color); }
-        .org-logo {
-            height: 30px; width: auto;
-            flex-shrink: 0;
-            border-radius: 4px;
-        }
+        .org-name { color: var(--text-color); text-decoration: none; font-weight: 500; }
+        .org-name:hover { color: var(--accent-color); text-decoration: underline; }
 
         /* 타임라인 스타일 */
         .timeline-item {
@@ -266,6 +269,10 @@
             <a href="https://orcid.org/0009-0005-8982-1239" target="_blank" rel="noopener noreferrer" title="ORCID" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
             <a href="https://www.linkedin.com/in/jiwon-lee-57b282325/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="mailto:l.jiwon@al.t.u-tokyo.ac.jp" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div class="visitor-counter" aria-label="Visitor count">
+            👤 Today <b id="vc-today">–</b><span class="vc-sep">·</span>Total <b id="vc-total">–</b>
         </div>
     </nav>
 
@@ -374,10 +381,10 @@
             <h2>Experience</h2>
 
             <div class="timeline-item">
-                <div class="timeline-date">Apr. 2025 - Present</div>
+                <div class="timeline-date">Apr. 2025 - Present<a class="org-mark-link" href="https://auxilart.com/" target="_blank" rel="noopener noreferrer"><img class="org-mark" src="logos/auxilart.svg" alt="Auxilart logo"></a></div>
                 <div class="timeline-content">
                     <h4>CFD Engineer</h4>
-                    <p><a class="org-line" href="https://auxilart.com/" target="_blank" rel="noopener noreferrer"><img class="org-logo" src="logos/auxilart.svg" alt="Auxilart logo"><span class="org-name">Auxilart Co., Ltd., Japan</span></a></p>
+                    <p><a class="org-name" href="https://auxilart.com/" target="_blank" rel="noopener noreferrer">Auxilart Co., Ltd., Japan</a></p>
                     <ul class="normal-list">
                         <li>Specializing in computational modeling of gas-liquid two-phase flows in industrial tanks.</li>
                     </ul>
@@ -385,10 +392,10 @@
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">Aug. 2022 - Sep. 2022</div>
+                <div class="timeline-date">Aug. 2022 - Sep. 2022<a class="org-mark-link" href="https://kist.re.kr/eng/index.do" target="_blank" rel="noopener noreferrer"><img class="org-mark" src="logos/kist.png" alt="KIST logo"></a></div>
                 <div class="timeline-content">
                     <h4>Research Internship</h4>
-                    <p><a class="org-line" href="https://kist.re.kr/eng/index.do" target="_blank" rel="noopener noreferrer"><img class="org-logo" src="logos/kist.png" alt="KIST logo"><span class="org-name">Complex Micro-Fluids Lab, KIST (Korea Institute of Science and Technology), Republic of Korea</span></a></p>
+                    <p><a class="org-name" href="https://kist.re.kr/eng/index.do" target="_blank" rel="noopener noreferrer">Complex Micro-Fluids Lab, KIST (Korea Institute of Science and Technology), Republic of Korea</a></p>
                     <ul class="normal-list">
                         <li>Measurement of fluorescent particle velocity in microchannels through Particle Streak Velocimetry.</li>
                     </ul>
@@ -400,20 +407,20 @@
             <h2>Education</h2>
 
             <div class="timeline-item">
-                <div class="timeline-date">Oct. 2025 - Present</div>
+                <div class="timeline-date">Oct. 2025 - Present<a class="org-mark-link" href="https://www.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer"><img class="org-mark" src="logos/utokyo.svg" alt="The University of Tokyo logo"></a></div>
                 <div class="timeline-content">
                     <h4>Ph.D. in Aeronautics and Astronautics</h4>
-                    <p><a class="org-line" href="https://www.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer"><img class="org-logo" src="logos/utokyo.svg" alt="The University of Tokyo logo"><span class="org-name">The University of Tokyo, Japan</span></a></p>
+                    <p><a class="org-name" href="https://www.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer">The University of Tokyo, Japan</a></p>
                     <p><a href="https://www.aerospace.t.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer">Department of Aeronautics and Astronautics</a>, Graduate School of Engineering</p>
                     <p>Advisor: <a href="http://www.al.t.u-tokyo.ac.jp/kimiya/kimiya.html" target="_blank" rel="noopener noreferrer">Kimiya Komurasaki</a>, Ph.D.</p>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">Oct. 2023 - Sep. 2025</div>
+                <div class="timeline-date">Oct. 2023 - Sep. 2025<a class="org-mark-link" href="https://www.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer"><img class="org-mark" src="logos/utokyo.svg" alt="The University of Tokyo logo"></a></div>
                 <div class="timeline-content">
                     <h4>M.S. in Aeronautics and Astronautics</h4>
-                    <p><a class="org-line" href="https://www.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer"><img class="org-logo" src="logos/utokyo.svg" alt="The University of Tokyo logo"><span class="org-name">The University of Tokyo, Japan</span></a></p>
+                    <p><a class="org-name" href="https://www.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer">The University of Tokyo, Japan</a></p>
                     <p><a href="https://www.aerospace.t.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer">Department of Aeronautics and Astronautics</a>, Graduate School of Engineering</p>
                     <p>Advisor: <a href="http://www.al.t.u-tokyo.ac.jp/kimiya/kimiya.html" target="_blank" rel="noopener noreferrer">Kimiya Komurasaki</a>, Ph.D.</p>
                     <p>Thesis: “Anode Design Optimization of Argon Hall Thrusters Based on DSMC Analysis of Neutral Particle Behavior”</p>
@@ -421,20 +428,20 @@
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">Mar. 2023 - Sep. 2023</div>
+                <div class="timeline-date">Mar. 2023 - Sep. 2023<a class="org-mark-link" href="https://www.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer"><img class="org-mark" src="logos/utokyo.svg" alt="The University of Tokyo logo"></a></div>
                 <div class="timeline-content">
                     <h4>Research Student in Aeronautics and Astronautics</h4>
-                    <p><a class="org-line" href="https://www.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer"><img class="org-logo" src="logos/utokyo.svg" alt="The University of Tokyo logo"><span class="org-name">The University of Tokyo, Japan</span></a></p>
+                    <p><a class="org-name" href="https://www.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer">The University of Tokyo, Japan</a></p>
                     <p><a href="https://www.aerospace.t.u-tokyo.ac.jp/en/" target="_blank" rel="noopener noreferrer">Department of Aeronautics and Astronautics</a>, Graduate School of Engineering</p>
                     <p>Advisor: <a href="http://www.al.t.u-tokyo.ac.jp/kimiya/kimiya.html" target="_blank" rel="noopener noreferrer">Kimiya Komurasaki</a>, Ph.D.</p>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">Mar. 2017 - Feb. 2023</div>
+                <div class="timeline-date">Mar. 2017 - Feb. 2023<a class="org-mark-link" href="https://www.hanyang.ac.kr/web/eng" target="_blank" rel="noopener noreferrer"><img class="org-mark" src="logos/hanyang.png" alt="Hanyang University logo"></a></div>
                 <div class="timeline-content">
                     <h4>B.S. in Mechanical Engineering</h4>
-                    <p><a class="org-line" href="https://www.hanyang.ac.kr/web/eng" target="_blank" rel="noopener noreferrer"><img class="org-logo" src="logos/hanyang.svg" alt="Hanyang University logo"><span class="org-name">Hanyang University, Republic of Korea</span></a></p>
+                    <p><a class="org-name" href="https://www.hanyang.ac.kr/web/eng" target="_blank" rel="noopener noreferrer">Hanyang University, Republic of Korea</a></p>
                     <p><a href="https://me.hanyang.ac.kr/eng/main/main.html" target="_blank" rel="noopener noreferrer">School of Mechanical Engineering</a></p>
                     <p>Advisor: <a href="https://phl.hanyang.ac.kr/" target="_blank" rel="noopener noreferrer">Rhokyun Kwak</a>, Ph.D.</p>
                     <p>Thesis: “Electroconvective instability on liquid metal electrodes”</p>
@@ -553,6 +560,32 @@
         document.getElementById('back-to-top').addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // 방문자 카운터 (abacus API, 브라우저 세션당 1회 집계)
+        (function () {
+            var NS = 'jiwon-lee11-github-io';
+            var base = 'https://abacus.jasoncameron.dev';
+            var d = new Date();
+            var today = d.getFullYear() + '-' +
+                        String(d.getMonth() + 1).padStart(2, '0') + '-' +
+                        String(d.getDate()).padStart(2, '0');
+            var isNewVisit = !sessionStorage.getItem('vc_counted');
+            var verb = isNewVisit ? 'hit' : 'get'; // 새 방문이면 +1, 아니면 조회만
+
+            function show(id, v) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = (v == null ? '–' : Number(v).toLocaleString());
+            }
+            function load(key, id) {
+                fetch(base + '/' + verb + '/' + NS + '/' + key)
+                    .then(function (r) { return r.json(); })
+                    .then(function (j) { show(id, j.value); })
+                    .catch(function () {});
+            }
+            load('total', 'vc-total');
+            load(today, 'vc-today');
+            if (isNewVisit) sessionStorage.setItem('vc_counted', '1');
+        })();
     </script>
 
 </body>
