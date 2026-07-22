@@ -179,6 +179,42 @@
         .badge-poster { background: #eafaf1; color: #1e8449; }
         .badge-accepted { background: #fef9e7; color: #b7950b; }
 
+        /* Academic Work 카테고리 카드 (은은한 배경) */
+        .academic-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 6px 30px 24px;
+            margin-bottom: 22px;
+        }
+        .academic-card h3 { margin-top: 26px; }
+
+        /* 학회 / 저널 이름 강조 — 어디서 발표했는지 한눈에 */
+        #academic-work em {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--main-color);
+            background: rgba(0, 87, 255, 0.10);
+            padding: 1px 7px;
+            border-radius: 5px;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+        }
+
+        /* Activities: 학생회 마크가 붙는 항목 */
+        .normal-list li.with-mark {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-left: -20px;
+            margin-bottom: 16px;
+        }
+        .normal-list li.with-mark img {
+            width: 58px; height: auto;
+            flex-shrink: 0;
+            border-radius: 8px;
+        }
+
         /* 수상 카드 스타일 */
         .award-item {
             background: var(--light-gray);
@@ -197,8 +233,7 @@
         .org-mark-link { display: block; margin-top: 12px; line-height: 0; }
         .org-mark {
             display: block;
-            width: auto; height: auto;
-            max-width: 132px; max-height: 46px;
+            width: 116px; height: auto;   /* 모든 로고 동일 너비 (종횡비 유지) */
             object-fit: contain;
         }
         .org-name { color: var(--text-color); text-decoration: none; font-weight: 500; }
@@ -316,6 +351,7 @@
         <section id="academic-work">
             <h2>Academic Work</h2>
 
+            <div class="academic-card">
             <h3>Publications (Peer-Reviewed)</h3>
             <ol class="normal-list">
                 <li>D. Satpathy, K. Komurasaki, <strong><u>J. Lee</u></strong>, et al., “Impact of reverse flow induced by a sawtooth anode on the performance of an argon Hall thruster”,
@@ -328,6 +364,9 @@
                     <em>Journal of Applied Physics, American Institute of Physics Publishing</em>, 2024, <a href="https://doi.org/10.1063/5.0241386" target="_blank" rel="noopener noreferrer">doi:10.1063/5.0241386</a></li>
             </ol>
 
+            </div>
+
+            <div class="academic-card">
             <h3>International Conferences</h3>
             <ol class="normal-list">
                 <li><strong><u>J. Lee</u></strong>, et al., "Modeling of Sawtooth-Shaped Walls for Rarefied Gas Flow Control", <em>34th International Symposium on Rarefied Gas Dynamics</em>, Brisbane, Australia, Jul. 2026. <span class="badge badge-oral">Oral</span></li>
@@ -353,6 +392,9 @@
                 <li>D. Satpathy, H. Sekine, <strong><u>J. Lee</u></strong>, et al., "Propellant Utilization Efficiency of an Argon Hall Thruster with Swirl Injection", <em>38th International Electric Propulsion Conference</em>, Toulouse, France, Jun. 2024. <span class="badge badge-oral">Oral</span></li>
             </ol>
 
+            </div>
+
+            <div class="academic-card">
             <h3>Domestic Conferences</h3>
             <ol class="normal-list">
                 <li><strong><u>J. Lee</u></strong>, et al., "Numerical Implementation of the Sawtooth-CLL Boundary Model in DSMC for Rarefied Gas Flow Control", <em>第58回流力講演会／第44回ANSS</em>, Tottori, Japan, Jun. 2026. <span class="badge badge-oral">Oral</span></li>
@@ -375,6 +417,7 @@
 
                 <li><strong><u>J. Lee</u></strong>, et al., "Use of Argon Propellant in a Hall Thruster for Mass Transportation", <em>第9回宇宙太陽光発電シンポジウム</em>, Kanazawa, Japan, Dec. 2023. <span class="badge badge-oral">Oral</span></li>
             </ol>
+            </div>
         </section>
 
         <section id="experience">
@@ -491,7 +534,7 @@
         <section id="activities">
             <h2>Activities &amp; Others</h2>
             <ul class="normal-list">
-                <li><strong><a href="https://www.tokyoksa.com/" target="_blank" rel="noopener noreferrer">The 54th President, Korean Student Association, The University of Tokyo</a></strong>, Apr. 2026 - Mar. 2027</li>
+                <li class="with-mark"><a href="https://www.tokyoksa.com/" target="_blank" rel="noopener noreferrer"><img src="logos/utksa.png" alt="UTKSA logo"></a><span><strong><a href="https://www.tokyoksa.com/" target="_blank" rel="noopener noreferrer">The 54th President, Korean Student Association, The University of Tokyo</a></strong>, Apr. 2026 - Mar. 2027</span></li>
 
                 <li><strong>Completed <a href="https://www.astrobio.k.u-tokyo.ac.jp/DeepSpace/%e6%9c%ac%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%ae%e7%9b%ae%e7%9a%84/" target="_blank" rel="noopener noreferrer">Deep Space Exploration Education Program</a>, The University of Tokyo</strong>, Mar. 2025</li>
 
