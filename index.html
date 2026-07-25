@@ -335,13 +335,20 @@
             position: relative; z-index: 2; display: flex; align-items: center;
             gap: 42px; padding: 46px 60px; width: 100%;
         }
-        .hero-photo {
-            width: 172px; height: 172px; border-radius: 50%; flex-shrink: 0;
-            background-image: url('https://github.com/Jiwon-Lee11.png');
-            background-size: cover; background-position: center;
-            border: 4px solid rgba(255,255,255,0.18);
-            box-shadow: 0 10px 34px rgba(0,0,0,0.45);
+        /* Download CV 버튼 */
+        .cv-btn {
+            display: inline-flex; align-items: center; gap: 9px;
+            margin-top: 26px; padding: 12px 22px; border-radius: 10px;
+            font-weight: 600; font-size: 0.98rem; text-decoration: none;
+            background: var(--accent-color); color: #fff; transition: 0.2s;
         }
+        .cv-btn:hover { filter: brightness(1.08); text-decoration: none; }
+        .cv-btn.is-preparing {
+            background: #eef2f7; color: #94a3b8; cursor: default;
+            border: 1px dashed #cbd5e1;
+        }
+        .cv-btn.is-preparing:hover { filter: none; }
+        .cv-btn .cv-note { font-weight: 500; font-size: 0.82rem; opacity: 0.95; }
         .hero-eyebrow {
             color: #5b9bd5; letter-spacing: 2.5px; font-size: 0.8rem;
             font-weight: 700; text-transform: uppercase; margin-bottom: 14px;
@@ -409,7 +416,6 @@
                 <img class="hero-bg" src="img/hero-thruster.jpg" alt="Argon Hall thruster plume">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <div class="hero-photo" role="img" aria-label="Portrait of Jiwon Lee"></div>
                     <div class="hero-text">
                         <div class="hero-eyebrow">Electric Propulsion &nbsp;&middot;&nbsp; Rarefied Gas Dynamics</div>
                         <h1 class="hero-name">Jiwon Lee</h1>
@@ -423,30 +429,28 @@
                 <div class="hero-updated">Last updated: July 25, 2026</div>
             </div>
 
-            <!-- Welcome + Info -->
+            <!-- About / Bio -->
             <div style="padding: 50px 80px;">
-            <p style="font-size: 1.2rem; margin: 0 0 20px;">
-                Welcome to my personal website! <br>
-                I am a PhD student in the Komurasaki &amp; Koizumi Laboratory at the University of Tokyo.
+            <p style="font-size: 1.05rem; line-height: 1.85; margin: 0;">
+                Hello, and welcome to my website. I am a Ph.D. student and
+                <a href="https://www.jsps.go.jp/english/" target="_blank" rel="noopener noreferrer">JSPS Research Fellow (DC1)</a>
+                in the <a href="http://www.al.t.u-tokyo.ac.jp/index.html" target="_blank" rel="noopener noreferrer">Komurasaki &amp; Koizumi Laboratory</a>
+                at the University of Tokyo, specializing in <strong>electric propulsion</strong> for spacecraft.
+                I bridge <strong>numerical simulation and experiments</strong> &mdash; developing in-house
+                <a href="http://www.al.t.u-tokyo.ac.jp/hall_en.html#tab1" target="_blank" rel="noopener noreferrer">Hall&nbsp;thruster</a>
+                DSMC codes and validating them on the RAIJIN thrusters &mdash; to improve performance with alternative
+                propellants such as argon. More broadly, I am interested in rarefied gas dynamics, gas&ndash;surface
+                interaction modeling, and air-breathing electric propulsion (ABEP) for future low-Earth-orbit and
+                deep-space missions.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.85; margin: 18px 0 0;">
+                Before Tokyo, I earned a B.S. in Mechanical Engineering from Hanyang University, Republic of Korea.
+                Feel free to look around, or reach out for collaboration.
             </p>
 
-            <ul class="emoji-list">
-                <li>
-                    <span class="icon">🏛️</span>
-                    <strong>Affiliation:</strong>
-                    <a href="http://www.al.t.u-tokyo.ac.jp/index.html" target="_blank" rel="noopener noreferrer">The University of Tokyo, Komurasaki &amp; Koizumi Lab</a>
-                </li>
-                <li>
-                    <span class="icon">🔬</span>
-                    <strong>Research Interest:</strong>
-                    <span>Electric Propulsion, <a href="http://www.al.t.u-tokyo.ac.jp/hall_en.html#tab1" target="_blank" rel="noopener noreferrer">Hall Thrusters</a>, Rarefied gas dynamics, DSMC method</span>
-                </li>
-                <li>
-                    <span class="icon">📍</span>
-                    <strong>Location:</strong>
-                    <span>Tokyo, Japan</span>
-                </li>
-            </ul>
+            <a class="cv-btn is-preparing" aria-disabled="true" title="CV is being prepared">
+                <span>📄</span> Download CV <span class="cv-note">(준비 중 &middot; coming soon)</span>
+            </a>
             </div>
         </section>
 
@@ -483,7 +487,7 @@
             <h2>Experimental Facilities</h2>
 
             <div class="facility">
-                <img class="facility-img" src="img/thrust-stand.png" alt="2D dual-pendulum thrust stand">
+                <img class="facility-img" src="img/thrust-stand.jpg" alt="2D dual-pendulum thrust stand">
                 <div class="facility-body">
                     <h4>2D Dual-Pendulum Thrust Stand for Hall Thrusters (1–100 mN class)</h4>
                     <p>A high-precision two-dimensional dual-pendulum thrust stand for direct thrust measurement of Hall thrusters in the 1–100 mN range. It combines inner and outer pendulums, a J&nbsp;×&nbsp;B calibration/control system, temperature-uniform plates to suppress thermal drift, and a dedicated sensor system. Currently used to characterize the RAIJIN-66 argon Hall thruster.</p>
