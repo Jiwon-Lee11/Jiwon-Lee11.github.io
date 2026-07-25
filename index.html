@@ -335,6 +335,13 @@
             position: relative; z-index: 2; display: flex; align-items: center;
             gap: 42px; padding: 46px 60px; width: 100%;
         }
+        /* About 인사말 강조 */
+        .about-hello {
+            font-size: 2.6rem; font-weight: 800; color: var(--main-color);
+            letter-spacing: -0.5px; margin-bottom: 16px; line-height: 1.1;
+        }
+        .about-hello .wave { display: inline-block; }
+
         /* Download CV 버튼 */
         .cv-btn {
             display: inline-flex; align-items: center; gap: 9px;
@@ -431,21 +438,13 @@
 
             <!-- About / Bio -->
             <div style="padding: 50px 80px;">
-            <p style="font-size: 1.05rem; line-height: 1.85; margin: 0;">
-                Hello, and welcome to my website. I am a Ph.D. student and
-                <a href="https://www.jsps.go.jp/english/" target="_blank" rel="noopener noreferrer">JSPS Research Fellow (DC1)</a>
-                in the <a href="http://www.al.t.u-tokyo.ac.jp/index.html" target="_blank" rel="noopener noreferrer">Komurasaki &amp; Koizumi Laboratory</a>
-                at the University of Tokyo, specializing in <strong>electric propulsion</strong> for spacecraft.
-                I bridge <strong>numerical simulation and experiments</strong> &mdash; developing in-house
-                <a href="http://www.al.t.u-tokyo.ac.jp/hall_en.html#tab1" target="_blank" rel="noopener noreferrer">Hall&nbsp;thruster</a>
-                DSMC codes and validating them on the RAIJIN thrusters &mdash; to improve performance with alternative
-                propellants such as argon. More broadly, I am interested in rarefied gas dynamics, gas&ndash;surface
-                interaction modeling, and air-breathing electric propulsion (ABEP) for future low-Earth-orbit and
-                deep-space missions.
-            </p>
-            <p style="font-size: 1.05rem; line-height: 1.85; margin: 18px 0 0;">
-                Before Tokyo, I earned a B.S. in Mechanical Engineering from Hanyang University, Republic of Korea.
-                Feel free to look around, or reach out for collaboration.
+            <div class="about-hello">Hello <span class="wave">👋</span></div>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin: 0; max-width: 720px;">
+                I'm a Ph.D. student and <a href="https://www.jsps.go.jp/english/" target="_blank" rel="noopener noreferrer">JSPS Research Fellow (DC1)</a>
+                at the University of Tokyo (<a href="http://www.al.t.u-tokyo.ac.jp/index.html" target="_blank" rel="noopener noreferrer">Komurasaki &amp; Koizumi Lab</a>),
+                working on <strong>electric propulsion</strong>. I combine in-house DSMC simulation with thruster experiments
+                to improve argon <a href="http://www.al.t.u-tokyo.ac.jp/hall_en.html#tab1" target="_blank" rel="noopener noreferrer">Hall&nbsp;thrusters</a>,
+                with broad interest in rarefied gas dynamics and air-breathing electric propulsion (ABEP).
             </p>
 
             <a class="cv-btn is-preparing" aria-disabled="true" title="CV is being prepared">
