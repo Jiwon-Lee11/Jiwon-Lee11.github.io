@@ -316,6 +316,53 @@
             .nav-menu li { margin-bottom: 0; }
             .nav-menu a { padding: 8px 12px; font-size: 0.85rem; background: rgba(255,255,255,0.08); }
         }
+
+        /* ===== Hero Banner ===== */
+        .hero {
+            position: relative; min-height: 360px; display: flex; align-items: center;
+            overflow: hidden;
+            background: linear-gradient(120deg, #0a1730 0%, #122443 45%, #16294f 100%);
+        }
+        .hero-bg {
+            position: absolute; right: 0; top: 0; height: 100%; width: 62%;
+            object-fit: cover; object-position: center;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, #0a1730 30%, rgba(10,23,48,0.82) 47%, rgba(10,23,48,0.12) 72%, rgba(10,23,48,0) 90%);
+        }
+        .hero-content {
+            position: relative; z-index: 2; display: flex; align-items: center;
+            gap: 42px; padding: 46px 60px; width: 100%;
+        }
+        .hero-photo {
+            width: 172px; height: 172px; border-radius: 50%; flex-shrink: 0;
+            background-image: url('https://github.com/Jiwon-Lee11.png');
+            background-size: cover; background-position: center;
+            border: 4px solid rgba(255,255,255,0.18);
+            box-shadow: 0 10px 34px rgba(0,0,0,0.45);
+        }
+        .hero-eyebrow {
+            color: #5b9bd5; letter-spacing: 2.5px; font-size: 0.8rem;
+            font-weight: 700; text-transform: uppercase; margin-bottom: 14px;
+        }
+        .hero-name {
+            color: #fff; font-size: 3rem; font-weight: 700; line-height: 1;
+            margin-bottom: 20px; letter-spacing: -0.5px;
+        }
+        .hero-sub { color: rgba(255,255,255,0.9); font-size: 0.98rem; line-height: 1.65; margin-bottom: 16px; }
+        .hero-sub .accent { color: #8ec1ee; }
+        .hero-tagline { color: #8ec1ee; font-size: 1.06rem; font-style: italic; }
+        .hero-updated {
+            position: absolute; right: 22px; bottom: 14px; z-index: 3;
+            color: rgba(255,255,255,0.55); font-size: 0.78rem; letter-spacing: 0.3px;
+        }
+        @media (max-width: 768px) {
+            .hero-content { flex-direction: column; text-align: center; padding: 36px 24px; gap: 22px; }
+            .hero-bg { width: 100%; opacity: 0.32; }
+            .hero-overlay { background: linear-gradient(180deg, rgba(10,23,48,0.55), rgba(10,23,48,0.85)); }
+            .hero-name { font-size: 2.1rem; }
+        }
     </style>
 </head>
 
@@ -356,9 +403,29 @@
 
     <main class="main-content">
 
-        <section id="about" style="padding-top: 100px;">
-            <h2>Hello, I'm <span style="color: var(--accent-color);">Jiwon Lee</span>.</h2>
-            <p style="font-size: 1.2rem; margin: 30px 0 20px;">
+        <section id="about" style="padding: 0;">
+            <!-- Hero Banner -->
+            <div class="hero">
+                <img class="hero-bg" src="img/hero-thruster.jpg" alt="Argon Hall thruster plume">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <div class="hero-photo" role="img" aria-label="Portrait of Jiwon Lee"></div>
+                    <div class="hero-text">
+                        <div class="hero-eyebrow">Electric Propulsion &nbsp;&middot;&nbsp; Rarefied Gas Dynamics</div>
+                        <h1 class="hero-name">Jiwon Lee</h1>
+                        <div class="hero-sub">
+                            <strong>Ph.D. Student, Dept. of Aeronautics &amp; Astronautics, The University of Tokyo</strong><br>
+                            <span class="accent">Komurasaki &amp; Koizumi Laboratory &nbsp;&middot;&nbsp; JSPS Research Fellow (DC1)</span>
+                        </div>
+                        <div class="hero-tagline">Enhancing electric thruster performance through rarefied gas flow control</div>
+                    </div>
+                </div>
+                <div class="hero-updated">Last updated: July 25, 2026</div>
+            </div>
+
+            <!-- Welcome + Info -->
+            <div style="padding: 50px 80px;">
+            <p style="font-size: 1.2rem; margin: 0 0 20px;">
                 Welcome to my personal website! <br>
                 I am a PhD student in the Komurasaki &amp; Koizumi Laboratory at the University of Tokyo.
             </p>
@@ -380,11 +447,19 @@
                     <span>Tokyo, Japan</span>
                 </li>
             </ul>
+            </div>
         </section>
 
         <section id="research">
             <h2>Research Interest</h2>
-            <p>My research focuses on the numerical and experimental analysis of Argon Hall thrusters to improve their performance.</p>
+            <p>I study the performance enhancement of electric thrusters through the control of rarefied gas flow.
+            Using an in-house Direct Simulation Monte Carlo (DSMC) code, I characterized how the neutral-particle
+            behavior inside an argon Hall thruster changes with the propellant injection method, and demonstrated
+            that a sawtooth hollow anode increases the reverse flow to raise the neutral density within the discharge
+            channel. Both studies were validated experimentally on the RAIJIN-66 Hall thruster. I am currently
+            writing a paper on gas&ndash;surface interaction modeling for design optimization, and I am extending my
+            research toward Particle-In-Cell (PIC) simulations to analyze how the neutral density and magnetic-field
+            design affect the ionization efficiency.</p>
             <ul class="normal-list" style="margin-top: 30px;">
                 <li><strong>Electric Propulsion:</strong> Neutral flow dynamics in Hall thrusters, Alternative propellants (Argon, etc.)</li>
                 <li><strong>Numerical Simulation:</strong> Developing Direct Simulation Monte Carlo (DSMC) codes</li>
