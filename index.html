@@ -15,7 +15,18 @@
     <meta property="og:description" content="Research on electric propulsion, Hall thrusters, rarefied gas dynamics, and DSMC methods.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jiwon-lee11.github.io/">
-    <meta property="og:image" content="https://jiwon-lee11.github.io/img/profile.jpg">
+    <meta property="og:image" content="https://jiwon-lee11.github.io/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter/X 카드 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jiwon Lee | PhD Student, The University of Tokyo">
+    <meta name="twitter:description" content="Research on electric propulsion, Hall thrusters, rarefied gas dynamics, and DSMC methods.">
+    <meta name="twitter:image" content="https://jiwon-lee11.github.io/img/og-image.jpg">
+
+    <!-- 다크모드: 첫 페인트 전에 테마 적용 (깜빡임 방지) -->
+    <script>(function(){try{var s=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme', s||(d?'dark':'light'));}catch(e){}})();</script>
 
     <!-- 파비콘 (로켓 이모지) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
@@ -377,6 +388,63 @@
             .hero-overlay { background: linear-gradient(180deg, rgba(10,23,48,0.55), rgba(10,23,48,0.85)); }
             .hero-name { font-size: 2.1rem; }
         }
+
+        /* ===== 테마 토글 버튼 (사이드바) ===== */
+        .theme-toggle {
+            margin-top: 20px;
+            width: 38px; height: 38px;
+            border: none; border-radius: 50%;
+            background: rgba(255,255,255,0.1); color: #fff;
+            font-size: 1rem; cursor: pointer; transition: 0.3s;
+            display: inline-flex; align-items: center; justify-content: center;
+        }
+        .theme-toggle:hover { background: var(--accent-color); }
+
+        /* ===== Research Highlights (그리드) ===== */
+        .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 10px; }
+        .highlight-card {
+            background: var(--light-gray); border-radius: 12px; overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        .highlight-card img { width: 100%; height: 190px; object-fit: cover; display: block; background: #fff; }
+        .highlight-card .hl-body { padding: 16px 20px; }
+        .highlight-card h4 { margin-bottom: 6px; }
+        .highlight-card p { font-size: 0.9rem; color: #555; margin: 0; }
+
+        /* ===== 다크모드 ===== */
+        :root[data-theme="dark"] {
+            --text-color: #cbd5e1;
+            --bg-color: #0f172a;      /* slate-900 배경 */
+            --light-gray: #1e293b;    /* 카드 */
+        }
+        :root[data-theme="dark"] section { border-bottom-color: #1e293b; }
+        :root[data-theme="dark"] h2,
+        :root[data-theme="dark"] h3 { color: #e2e8f0; }
+        :root[data-theme="dark"] h4 { color: #cbd5e1; }
+        :root[data-theme="dark"] .about-hello { color: #f1f5f9; }
+        :root[data-theme="dark"] ul.emoji-list li strong { color: #e2e8f0; }
+        :root[data-theme="dark"] .keyword-tag {
+            color: #e2e8f0; background: rgba(0,87,255,0.16); border-color: rgba(120,170,255,0.4);
+        }
+        :root[data-theme="dark"] .award-meta,
+        :root[data-theme="dark"] .award-desc,
+        :root[data-theme="dark"] .date-note,
+        :root[data-theme="dark"] .highlight-card p { color: #94a3b8; }
+        :root[data-theme="dark"] .award-title { color: #e2e8f0; }
+        :root[data-theme="dark"] .facility-img,
+        :root[data-theme="dark"] .highlight-card img { background: #0f172a; border-color: #334155; }
+        :root[data-theme="dark"] .highlight-card { border-color: #334155; }
+        :root[data-theme="dark"] .org-name { color: #cbd5e1; }
+        :root[data-theme="dark"] #academic-work .pubs em {
+            color: #93c5fd; background: rgba(0,87,255,0.20);
+        }
+        /* 컬러 로고가 어두운 배경에 묻히지 않도록 흰 칩 처리 */
+        :root[data-theme="dark"] .org-mark {
+            background: #fff; border-radius: 6px; padding: 5px;
+        }
+        :root[data-theme="dark"] .cv-btn.is-preparing {
+            background: #1e293b; color: #94a3b8; border-color: #334155;
+        }
     </style>
 </head>
 
@@ -394,6 +462,8 @@
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research Interest</a></li>
             <li><a href="#facilities">Facilities</a></li>
+            <!-- Research Highlights 공개 시 아래 주석 해제 -->
+            <!-- <li><a href="#highlights">Highlights</a></li> -->
             <li><a href="#academic-work">Academic Work</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#education">Education</a></li>
@@ -407,11 +477,15 @@
             <a href="https://scholar.google.com/citations?user=xkT7H7cAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" title="Google Scholar" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
             <a href="https://orcid.org/0009-0005-8982-1239" target="_blank" rel="noopener noreferrer" title="ORCID" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
             <a href="https://www.linkedin.com/in/jiwon-lee-57b282325/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="mailto:l.jiwon@al.t.u-tokyo.ac.jp" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a class="eml" data-u="l.jiwon" data-d="al.t.u-tokyo.ac.jp" href="#" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
 
         <div class="visitor-counter" aria-label="Visitor count">
             👤 Today <b id="vc-today">–</b><span class="vc-sep">·</span>Total <b id="vc-total">–</b>
+        </div>
+
+        <div style="text-align: center;">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
         </div>
     </nav>
 
@@ -507,6 +581,42 @@
                 </div>
             </div>
         </section>
+
+        <!-- ============================================================
+             RESEARCH HIGHLIGHTS  (준비중 — 공개하려면 이 주석 블록을 해제)
+             1) img/ 폴더에 결과 그림/GIF를 넣기 (예: highlight1.jpg …)
+             2) 아래 <section>을 감싼 주석(<!- - / - ->)을 제거
+             3) 사이드바 nav의 "Highlights" 주석도 함께 해제
+             각 카드의 src / 제목 / 설명을 실제 내용으로 교체하세요.
+        -->
+        <!--
+        <section id="highlights">
+            <h2>Research Highlights</h2>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <img src="img/highlight1.jpg" alt="DSMC neutral density field">
+                    <div class="hl-body">
+                        <h4>Neutral Density Field (DSMC)</h4>
+                        <p>Short one-line description of the result and why it matters.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="img/highlight2.jpg" alt="Sawtooth anode reverse flow">
+                    <div class="hl-body">
+                        <h4>Sawtooth Anode Reverse Flow</h4>
+                        <p>Short one-line description of the result and why it matters.</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="img/highlight3.jpg" alt="Argon Hall thruster plume">
+                    <div class="hl-body">
+                        <h4>Argon Hall Thruster Plume</h4>
+                        <p>Short one-line description of the result and why it matters.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
 
         <section id="academic-work">
             <h2>Academic Work</h2>
@@ -726,7 +836,7 @@
                 🎓 Google Scholar: <a href="https://scholar.google.com/citations?user=xkT7H7cAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar Profile</a><br>
                 🆔 ORCID: <a href="https://orcid.org/0009-0005-8982-1239" target="_blank" rel="noopener noreferrer">orcid.org/0009-0005-8982-1239</a><br>
                 🔗 LinkedIn: <a href="https://www.linkedin.com/in/jiwon-lee-57b282325/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jiwon-lee</a><br>
-                📧 Email: <a href="mailto:l.jiwon@al.t.u-tokyo.ac.jp">l.jiwon@al.t.u-tokyo.ac.jp</a>
+                📧 Email: <a class="eml" data-u="l.jiwon" data-d="al.t.u-tokyo.ac.jp" href="#">l.jiwon [at] al.t.u-tokyo.ac.jp</a>
             </p>
         </section>
 
@@ -790,6 +900,31 @@
             load('total', 'vc-total');
             load(today, 'vc-today');
             if (isNewVisit) sessionStorage.setItem('vc_counted', '1');
+        })();
+
+        // 다크모드 토글 (localStorage에 선택 저장, 없으면 OS 설정 따름)
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+            function apply(t) {
+                root.setAttribute('data-theme', t);
+                if (btn) btn.querySelector('i').className = (t === 'dark' ? 'fas fa-sun' : 'fas fa-moon');
+            }
+            apply(root.getAttribute('data-theme') || 'light');
+            if (btn) btn.addEventListener('click', function () {
+                var t = (root.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+                try { localStorage.setItem('theme', t); } catch (e) {}
+                apply(t);
+            });
+        })();
+
+        // 이메일 스팸 방지: 정적 HTML엔 주소를 두지 않고 JS로 조립
+        (function () {
+            Array.prototype.forEach.call(document.querySelectorAll('a.eml'), function (a) {
+                var addr = a.getAttribute('data-u') + '@' + a.getAttribute('data-d');
+                a.href = 'mailto:' + addr;
+                if (a.textContent.indexOf('[at]') > -1) a.textContent = addr;
+            });
         })();
     </script>
 
