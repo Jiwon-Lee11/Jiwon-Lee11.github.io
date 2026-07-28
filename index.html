@@ -330,12 +330,12 @@
 
         /* ===== Hero Banner ===== */
         .hero {
-            position: relative; min-height: 360px; display: flex; align-items: center;
+            position: relative; min-height: 480px; display: flex; align-items: center;
             overflow: hidden;
             background: linear-gradient(120deg, #0a1730 0%, #122443 45%, #16294f 100%);
         }
         .hero-bg {
-            position: absolute; right: 0; top: 0; height: 100%; width: 62%;
+            position: absolute; right: 0; top: 0; height: 100%; width: 58%;
             object-fit: cover; object-position: center;
         }
         .hero-overlay {
@@ -405,6 +405,18 @@
         @media (max-width: 768px) {
             .theme-toggle { top: 14px; right: 14px; width: 42px; height: 42px; }
         }
+        /* 사이드바 안 테마 토글 (About 위) */
+        .theme-toggle-nav {
+            display: flex; align-items: center; gap: 10px;
+            width: 100%; box-sizing: border-box;
+            background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85);
+            border: none; border-radius: 8px;
+            padding: 10px 15px; margin-bottom: 14px;
+            font-size: 0.9rem; font-family: inherit; cursor: pointer;
+            transition: 0.2s;
+        }
+        .theme-toggle-nav:hover { background: var(--accent-color); color: #fff; }
+        .theme-toggle-nav i { width: 18px; text-align: center; }
 
         /* ===== Research Highlights (그리드) ===== */
         .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 10px; }
@@ -464,6 +476,10 @@
             <p>PhD Student<br>Komurasaki &amp; Koizumi Lab<br>The University of Tokyo</p>
         </div>
 
+        <button class="theme-toggle-nav js-theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+            <i class="fas fa-moon"></i><span class="tt-label">Dark mode</span>
+        </button>
+
         <ul class="nav-menu">
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research Interest</a></li>
@@ -492,7 +508,7 @@
     </nav>
 
     <!-- 밤낮 테마 토글 (우상단 고정) -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light mode"><i class="fas fa-moon"></i></button>
+    <button id="theme-toggle" class="theme-toggle js-theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light mode"><i class="fas fa-moon"></i></button>
 
     <main class="main-content">
 
@@ -937,16 +953,23 @@
         // 다크모드 토글 (localStorage에 선택 저장, 없으면 OS 설정 따름)
         (function () {
             var root = document.documentElement;
-            var btn = document.getElementById('theme-toggle');
+            var btns = document.querySelectorAll('.js-theme-toggle');
             function apply(t) {
                 root.setAttribute('data-theme', t);
-                if (btn) btn.querySelector('i').className = (t === 'dark' ? 'fas fa-sun' : 'fas fa-moon');
+                Array.prototype.forEach.call(btns, function (b) {
+                    var ic = b.querySelector('i');
+                    if (ic) ic.className = (t === 'dark' ? 'fas fa-sun' : 'fas fa-moon');
+                    var lbl = b.querySelector('.tt-label');
+                    if (lbl) lbl.textContent = (t === 'dark' ? 'Light mode' : 'Dark mode');
+                });
             }
             apply(root.getAttribute('data-theme') || 'light');
-            if (btn) btn.addEventListener('click', function () {
-                var t = (root.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
-                try { localStorage.setItem('theme', t); } catch (e) {}
-                apply(t);
+            Array.prototype.forEach.call(btns, function (b) {
+                b.addEventListener('click', function () {
+                    var t = (root.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+                    try { localStorage.setItem('theme', t); } catch (e) {}
+                    apply(t);
+                });
             });
         })();
 
