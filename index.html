@@ -122,6 +122,9 @@
             background: var(--accent-color);
             font-weight: 600;
         }
+        /* 외부 링크(블로그) — 섹션 앵커와 시각적으로 구분 */
+        .nav-menu li.ext { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12); }
+        .nav-menu a .ext-mark { opacity: 0.5; font-size: 0.85em; margin-left: 5px; }
 
         .social-links { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
         .social-links a {
@@ -520,6 +523,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#activities">Activities</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li class="ext"><a href="https://jiwon-lee11.github.io/blog/" target="_blank" rel="noopener noreferrer">Notes<span class="ext-mark" aria-hidden="true">&#8599;</span></a></li>
         </ul>
 
         <div class="social-links">
@@ -970,6 +974,7 @@
                 🎓 Google Scholar: <a href="https://scholar.google.com/citations?user=xkT7H7cAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar Profile</a><br>
                 🆔 ORCID: <a href="https://orcid.org/0009-0005-8982-1239" target="_blank" rel="noopener noreferrer">orcid.org/0009-0005-8982-1239</a><br>
                 🔗 LinkedIn: <a href="https://www.linkedin.com/in/jiwon-lee-57b282325/" target="_blank" rel="noopener noreferrer">linkedin.com/in/jiwon-lee</a><br>
+                📓 Notes: <a href="https://jiwon-lee11.github.io/blog/" target="_blank" rel="noopener noreferrer">jiwon-lee11.github.io/blog</a><br>
                 📧 Email: <a class="eml" data-u="l.jiwon" data-d="al.t.u-tokyo.ac.jp" href="#">l.jiwon [at] al.t.u-tokyo.ac.jp</a>
             </p>
         </section>
@@ -982,7 +987,9 @@
     <script>
         // Scroll-spy: 현재 보고 있는 섹션을 사이드바 메뉴에 하이라이트
         (function () {
-            var links = document.querySelectorAll('.nav-menu a');
+            // 외부 링크(href 가 #로 시작하지 않는 것)는 제외한다.
+            // querySelector('https://...') 는 잘못된 선택자라 예외가 나고 스크롤 하이라이트가 멈춘다.
+            var links = document.querySelectorAll('.nav-menu a[href^="#"]');
             var sections = Array.prototype.map.call(links, function (link) {
                 return document.querySelector(link.getAttribute('href'));
             });
